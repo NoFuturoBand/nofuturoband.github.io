@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match de Canción</title>
+
+<style>
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CONTENEDOR */
+#app {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+/* PREGUNTAS */
+h2 {
+    font-size: clamp(22px, 5vw, 30px);
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+/* RESULTADO */
+h1 {
+    font-size: clamp(28px, 6vw, 42px);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* BOTONES */
+button {
+    width: 100%;
+    max-width: 400px;
+
+    font-size: clamp(18px, 4.5vw, 22px);
+    padding: 18px;
+
+    margin: 12px auto;
+    display: block;
+
+    cursor: pointer;
+
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+
+    transition: all 0.2s ease;
+}
+
+/* HOVER */
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* HISTORIAL */
+.history {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.history p {
+    font-size: clamp(14px, 3.5vw, 16px);
+    margin: 10px 0;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+/* ESPACIADO GENERAL EN MÓVIL */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    #app {
+        max-width: 100%;
+    }
+
+}
+
+</style>
+    
+</head>
+
+<body>
+
+<div id="app">
+
+<h2>
+Descubre qué canción describe tu momento.
+</h2>
+
+<p style="margin-bottom:30px; font-size:14px;">
+No hay respuestas correctas. Solo honestidad.
+</p>
+
+<button onclick="startQuiz()">Comenzar</button>
+
+</div>
+
+<script>
+
+let step = 0;
+let answers = [];
+
+const questions = [
+"¿Aún te afecta emocionalmente una relación que terminó?",
+"¿Sientes que has tenido que aceptar situaciones que no salieron como esperabas?",
+"¿Alguna vez alguien en quien confiabas te falló profundamente?",
+"¿Sientes que muchas cosas en tu vida no salen como quisieras?",
+"¿Evitas algunas situaciones por miedo a lo que podría pasar?",
+"Cuando algo duele, normalmente tú lo enfrentas?"
+];
+
+// Pesos emocionales
+const weights = [5,4,3,2,1];
+
+// Perfil emocional de canciones
+const songs = [
+
+{
+name:"Pongo en adopción a mi perro",
+profile:[1,0,0,1,0]
+},
+
+{
+name:"Detrás de los cristales",
+profile:[0,1,1,1,0]
+},
+
+{
+name:"Para mí",
+profile:[0,1,1,1,0]
+},
+
+{
+name:"No aprendí a bailar",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Demasiado viejos para cantar rap por eso cantamos punk",
+profile:[0,1,0,1,0]
+},
+
+{
+name:"Pánico al pogo",
+profile:[0,0,0,0,1]
+},
+
+{
+name:"Es lo que hay",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Pésimo servicio",
+profile:[1,1,0,1,0]
+},
+
+{
+name:"Tal vez",
+profile:[1,1,0,0,1]
+},
+
+{
+name:"Suficiente",
+profile:[1,1,1,1,1]
+}
+
+];
+
+function startQuiz(){
+
+step = 0;
+answers = [];
+
+showQuestion();
+
+}
+
+function showQuestion(){
+
+if(step < questions.length){
+
+document.getElementById("app").innerHTML = `
+<h2>${questions[step]}</h2>
+
+<button onclick="answer(1)">Sí</button>
+<button onclick="answer(0)">No</button>
+
+${getHistoryHTML()}
+`;
+
+}
+else{
+
+showResult();
+
+}
+
+}
+
+function answer(value){
+
+answers.push(value);
+
+step++;
+
+showQuestion();
+
+}
+
+  function getHistoryHTML(){
+
+let history = "<div class='history'>";
+
+for(let i = 0; i < answers.length; i++){
+
+let response = answers[i] === 1 ? "Sí" : "No";
+
+history += `
+<p style="font-size:14px; margin:5px 0;">
+<b>${questions[i]}</b><br>
+Respuesta: ${response}
+</p>
+`;
+
+}
+
+history += "</div>";
+
+return history;
+
+}
+
+  function showResult(){
+
+let emotionalAnswers = answers.slice(0,5);
+let tieBreaker = answers[5];
+
+let bestScore = -1;
+let bestSongs = [];
+
+// Calcular puntajes
+
+songs.forEach(song => {
+
+let score = 0;
+
+for(let i=0;i<5;i++){
+
+score += emotionalAnswers[i] *
+song.profile[i] *
+weights[i];
+
+}
+
+if(score > bestScore){
+
+bestScore = score;
+bestSongs = [song.name];
+
+}
+
+else if(score === bestScore){
+
+bestSongs.push(song.name);
+
+}
+
+});
+
+// Resolver empate con mezcla
+
+let finalSong;
+
+if(bestSongs.length === 1){
+
+finalSong = bestSongs[0];
+
+}
+else{
+
+// índice variable según respuestas
+
+let sumAnswers =
+answers.reduce((a,b)=>a+b,0);
+
+let index =
+(sumAnswers + tieBreaker) %
+bestSongs.length;
+
+finalSong =
+bestSongs[index];
+
+}
+
+// Mostrar resultado
+
+document.getElementById("app").innerHTML = `
+
+<h2 style="font-size:16px; letter-spacing:1px;">
+TU CANCIÓN ES
+</h2>
+
+<h1>${finalSong}</h1>
+
+<button onclick="startQuiz()">
+
+Intentar de nuevo
+
+</button>
+
+`;
+
+}
+
+
+</script>
+
+</body>
+</html>
