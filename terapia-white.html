@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Punk de Terapia - NO FUTURO</title>
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+BODY
+========================= */
+
+body{
+
+    font-family: Helvetica, Arial, sans-serif;
+
+    background:white;
+
+    color:black;
+
+    line-height:1.6;
+
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+
+    width:100%;
+
+    border-bottom:1px solid #ddd;
+
+    padding:20px;
+
+    position:sticky;
+
+    top:0;
+
+    background:white;
+
+    z-index:1000;
+
+}
+
+/* HEADER CONTENT */
+
+
+    .header-content{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+/* LOGO */
+
+.logo{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+/* MENU DESKTOP */
+
+.desktop-menu{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+/* MENU LINKS */
+
+.desktop-menu a{
+
+    text-decoration:none;
+
+    color:black;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+/* MOBILE MENU ICON */
+
+.mobile-menu{
+    
+
+    display:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+
+/* MOBILE DROPDOWN */
+
+    .mobile-dropdown{
+    
+        display:none;
+    
+        flex-direction:column;
+    
+        border-top:1px solid #ddd;
+    
+        background:white;
+    
+    }
+    
+    /* DROPDOWN LINKS */
+    
+    .mobile-dropdown a{
+    
+        padding:18px 20px;
+    
+        text-decoration:none;
+    
+        color:black;
+    
+        border-bottom:1px solid #eee;
+    
+        font-weight:bold;
+    
+    }
+    
+    /* SHOW MENU */
+    
+    .mobile-dropdown.show{
+    
+        display:flex;
+    
+    }
+
+
+
+    
+/* =========================
+MAIN CONTENT
+========================= */
+
+main{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:50px 20px;
+
+}
+
+/* =========================
+HERO SECTION
+========================= */
+
+.hero{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+    margin-bottom:80px;
+
+}
+
+/* COVER IMAGE */
+
+.cover{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* HERO TEXT */
+
+.hero-text h1{
+
+    font-size:56px;
+
+    margin-bottom:25px;
+
+    line-height:1.1;
+
+}
+
+/* =========================
+TEXT BLOCKS
+========================= */
+
+.text-block{
+
+    margin-bottom:50px;
+
+}
+
+/* TITLES */
+
+.section-title{
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+/* TRACKLIST */
+
+.tracklist{
+
+    list-style:none;
+
+    padding-left:0;
+
+}
+
+.tracklist li{
+
+    margin-bottom:10px;
+
+}
+    
+
+/* =========================
+PLATFORMS
+========================= */
+
+.platforms{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, 1fr);
+
+    gap:20px;
+
+    margin-top:40px;
+
+    margin-bottom:80px;
+
+}
+
+/* PLATFORM BUTTON */
+.platform-button{
+
+    border:2px solid black;
+
+    padding:18px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:black;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    transition:0.2s;
+
+    border-radius:12px;
+
+}
+
+
+/* HOVER */
+
+.platform-button:hover{
+
+    background:black;
+
+    color:white;
+
+}
+
+/* =========================
+CREDITS
+========================= */
+
+.credits p{
+
+    margin-bottom:18px;
+    
+}
+
+/* SONG CREDITS */
+    
+.song-credits{
+
+    line-height:1.4;
+
+    margin-bottom:40px;
+
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact{
+
+    margin-top:60px;
+
+    padding-top:40px;
+
+    border-top:1px solid #ddd;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+    .hero-text h1{
+
+        font-size:42px;
+
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+
+        padding:18px;
+
+    }
+
+    .desktop-menu{
+
+        display:none;
+
+    }
+
+    .mobile-menu{
+
+                display:block;
+
+    }
+
+
+    main{
+
+        padding:40px 20px;
+
+    }
+
+    .hero-text h1{
+
+        font-size:34px;
+
+    }
+
+    .platforms{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+/* INLINE LINKS */
+
+p a{
+
+    color:black;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    border-bottom:1px solid black;
+
+}
+
+/* HOVER */
+
+p a:hover{
+
+    opacity:0.6;
+
+}
+
+
+
+    
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+HEADER
+========================= -->
+<!-- =========================
+HEADER
+========================= -->
+
+<header>
+
+<div class="header-content">
+
+    <!-- LOGO -->
+    <div class="logo">
+        NO FUTURO
+    </div>
+
+    <!-- MENU DESKTOP -->
+    <nav class="desktop-menu">
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="terapia.html">
+            TERAPIA
+        </a>
+
+        <a href="quiz.html">
+            QUIZ
+        </a>
+
+    </nav>
+
+    <!-- MOBILE BUTTON -->
+    <div class="mobile-menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</div>
+
+<!-- MOBILE DROPDOWN -->
+
+<div id="mobileDropdown" class="mobile-dropdown">
+
+    <a href="home.html">
+        HOME
+    </a>
+
+    <a href="terapia.html">
+        TERAPIA
+    </a>
+
+    <a href="quiz.html">
+        QUIZ
+    </a>
+
+</div>
+
+</header>
+
+<!-- =========================
+MAIN
+========================= -->
+
+<main>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+    <!-- IMAGEN EDITABLE -->
+    <img src="assets/terapia.jpg" class="cover">
+
+    <div class="hero-text">
+
+        <!-- TITULO EDITABLE -->
+        <h1>
+            PUNK DE TERAPIA
+        </h1>
+
+        <!-- TEXTO EDITABLE -->
+        <div class="text-block">
+
+            <p>
+                Punk de terapia es la consolidación de los últimos tres años de música de No Futuro. Una mezcla de nostalgia, vivencias del pasado y sobre todo de sentir en su máxima expresión, nos da una forma de hacer Punk desde una perspectiva muy personal y emocional.
+            </p>
+
+        </div>
+
+        <!-- TRACKLIST -->
+        <div class="text-block">
+
+            <ul class="tracklist">
+
+                <!-- CANCIONES EDITABLES -->
+
+                <li>1. Pongo en adopción a mi perro</li>
+                <li>2. Detrás de los cristales</li>
+                <li>3. Para mí</li>
+                <li>4. No aprendí a bailar</li>
+                <li>5. Demasiado viejos para cantar rap por eso cantamos punk</li>
+                <li>6. Pánico al pogo</li>
+                <li>7. Es lo que hay</li>
+                <li>8. Pésimo servicio</li>
+                <li>9. Tal vez</li>
+                <li>10. Suficiente</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+PLATFORMS
+========================= -->
+
+<section class="platforms">
+
+    <!-- LINKS EDITABLES -->
+
+    <a href="https://open.spotify.com/album/6iZnQCRd88YeYnuEG8hhDn" target="_blank" class="platform-button">
+    Spotify
+    </a>
+
+    <a href="#" class="platform-button">
+        Apple Music
+    </a>
+
+    <a href="#" class="platform-button">
+        Youtube Music
+    </a>
+
+    <a href="https://nofuturoband.bandcamp.com/album/punk-de-terapia" target="_blank" class="platform-button">
+    Bandcamp
+    </a>
+    
+    
+</section>
+
+<!-- =========================
+CREDITS
+========================= -->
+
+<section class="credits">
+
+    <!-- TITULO EDITABLE -->
+    <h2 class="section-title">
+        PRODUCIDO EN IOESTUDIOS POR NO FUTURO
+    </h2>
+
+    <!-- TEXTO EDITABLE -->
+    <p>
+        No futuro son:<br>
+        Hesner Durán - Voz, bajo<br>
+        Milo Escorcia - Batería
+    </p>
+
+    <!-- TEXTO EDITABLE -->
+
+    <p>
+    Baterías grabadas en 
+    <a href="https://instagram.com/baltika_records" target="_blank">
+        @baltika_records
+    </a>
+    en la ciudad de Bogotá.
+    </p>
+
+    
+
+    <!-- CREDITOS DETALLADOS EDITABLES -->
+
+    <!-- CREDITOS DETALLADOS EDITABLES -->
+
+<div class="song-credits">
+
+“Pongo en adopción a mi perro”: voz, bajo y guitarra por Hesner Durán, batería por Damián Orbegozo, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
+
+“Detrás de los cristales”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
+
+“Para mí”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
+
+“No aprendí a bailar”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias Milo Escorcia y Damián Orbegozo.<br><br>
+
+“Demasiado viejos para cantar rap por eso cantamos punk”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
+
+“Pánico al pogo”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias Milo Escorcia y Damián Orbegozo.<br><br>
+
+“Es lo que hay”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
+
+“Pésimo servicio”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
+
+“Tal vez”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
+
+“Suficiente”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.
+
+</div>
+    
+<!-- CREDITOS GENERALES EDITABLES -->
+
+<p>
+Portada: Helena Durán<br>
+Producción artística: Milo Escorcia<br>
+Producción musical: Hesner Durán<br>
+Fotografía: Caro Gamboa
+</p>
+
+<!-- AGRADECIMIENTOS -->
+
+<h2 class="section-title">
+    AGRADECIMIENTOS ESPECIALES
+</h2>
+
+<!-- TEXTO EDITABLE -->
+
+<p>
+De parte de Hesner: A Laura Peña por ser mi compañía, mi estructura de vida y mi pasión. A Helena Durán por ser la inspiración y la esperanza de un futuro mejor. A Milo por ser parte de la locura de ser músico cuando no se es. A Dami por enseñarnos en la música algo más allá de lo que se escucha. A mi familia: a mi mamá Norma, mi papá William, mi hermana Tefy, a mis perros Odín y Andrómeda. A todos mis amigos que van dejando su huella incluso aunque no lo sepan: Luisfer Salazar, Edgardo Panza, Monik Peñaranda, Ana María Restrepo, Dayan Montañez, Eduardo Mantilla y a muchos y muchas otras personas que son parte de mi vida y de las que tengo una pequeña parte en mí.
+</p>
+
+<!-- TEXTO EDITABLE -->
+
+<p>
+De parte de Milo: Caro Gamboa
+</p>
+
+</section>
+
+<!-- =========================
+CONTACT
+========================= -->
+
+<section class="contact">
+
+    <!-- TITULO EDITABLE -->
+    <h2 class="section-title">
+        CONTACTO
+    </h2>
+
+    <!-- TEXTO EDITABLE -->
+    <p>
+        nofuturoband@gmail.com
+    </p>
+
+</section>
+
+</main>
+
+<script>
+
+/* TOGGLE MOBILE MENU */
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById(
+        "mobileDropdown"
+    );
+
+    menu.classList.toggle("show");
+
+}
+
+</script>
+
+
+
+    
+</body>
+</html>
