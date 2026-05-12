@@ -887,19 +887,21 @@ RESPONSIVE
 
     <div class="collage">
 
-        <!-- REEMPLAZA LOS NOMBRES POR TUS FOTOS -->
+    <!-- IMAGENES -->
 
-        <img src="assets/fotos/1.jpg" onclick="openLightbox(0)">
+    <img src="assets/fotos/1.JPG" onclick="openLightbox(0)">
 
-        <img src="assets/fotos/2.jpg" onclick="openLightbox(1)">
+    <img src="assets/fotos/2.JPG" onclick="openLightbox(1)">
 
-        <img src="assets/fotos/3.jpg" onclick="openLightbox(2)">
+    <img src="assets/fotos/3.JPG" onclick="openLightbox(2)">
 
-        <img src="assets/fotos/4.jpg" onclick="openLightbox(3)">
+    <img src="assets/fotos/4.jpg" onclick="openLightbox(3)">
 
-        <img src="assets/fotos/5.jpg" class="big" onclick="openLightbox(4)">
+    <!-- FOTO GRANDE -->
 
-    </div>
+    <img src="assets/fotos/5.jpg" class="big" onclick="openLightbox(4)">
+
+</div>
 
 </div>
 
@@ -917,7 +919,7 @@ RESPONSIVE
         ‹
     </div>
 
-    <img id="lightboxImage">
+    <div id="lightboxContent"></div>
 
     <div class="arrow arrow-right" onclick="nextImage()">
         ›
@@ -1063,11 +1065,19 @@ function toggleMenu(){
 
 const images = [
 
-    "assets/fotos/1.jpg",
-    "assets/fotos/2.jpg",
-    "assets/fotos/3.jpg",
+    "assets/fotos/1.JPG",
+    "assets/fotos/2.JPG",
+    "assets/fotos/3.JPG",
     "assets/fotos/4.jpg",
-    "assets/fotos/5.jpg"
+    "assets/fotos/5.jpg",
+    "assets/fotos/6.jpg",
+    "assets/fotos/7.jpg",
+    "assets/fotos/8.jpg",
+    "assets/fotos/9.jpg",
+    "assets/fotos/10.jpg",
+    "assets/fotos/11.jpeg",
+    "assets/fotos/12.jpg",
+    "assets/fotos/13.MP4"
 
 ];
 
@@ -1079,13 +1089,66 @@ function openLightbox(index){
 
     currentImage = index;
 
+    const lightbox =
     document.getElementById(
         "lightbox"
-    ).classList.add("active");
+    );
 
+    const container =
     document.getElementById(
-        "lightboxImage"
-    ).src = images[currentImage];
+        "lightboxContent"
+    );
+
+    const file =
+    images[currentImage];
+
+    lightbox.classList.add(
+        "active"
+    );
+
+    /* DETECT VIDEO */
+
+    if(
+        file.endsWith(".MP4") ||
+        file.endsWith(".mp4")
+    ){
+
+        container.innerHTML = `
+
+        <video
+            src="${file}"
+            autoplay
+            controls
+            playsinline
+            style="
+                max-width:90%;
+                max-height:85vh;
+                border-radius:12px;
+            "
+        ></video>
+
+        `;
+
+    }
+
+    /* IMAGE */
+
+    else{
+
+        container.innerHTML = `
+
+        <img
+            src="${file}"
+            style="
+                max-width:90%;
+                max-height:85vh;
+                border-radius:12px;
+            "
+        >
+
+        `;
+
+    }
 
 }
 
