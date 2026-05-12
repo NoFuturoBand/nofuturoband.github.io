@@ -296,6 +296,152 @@ HERO
 
 }
 
+
+/* =========================
+TRACKLIST PANEL
+========================= */
+
+.tracklist-section{
+
+    background:#f2f2f2;
+
+    border-bottom:1px solid #dddddd;
+
+}
+
+/* PANEL */
+
+.tracklist-panel{
+
+    max-width:760px;
+
+    margin:auto;
+
+    background:#111111;
+
+    padding:50px;
+
+    box-shadow:18px 18px 0px rgba(0,0,0,0.12);
+
+    position:relative;
+
+}
+
+/* TRACKLIST TITLE */
+
+.tracklist-panel-title{
+
+    font-size:54px;
+
+    color:#d62828;
+
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+    letter-spacing:1px;
+
+}
+
+/* TRACKLIST LINE */
+
+.tracklist-line{
+
+    width:100%;
+
+    height:2px;
+
+    background:#f2f2f2;
+
+    margin-bottom:30px;
+
+}
+
+/* TRACK ITEMS */
+
+.track-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    color:#f2f2f2;
+
+}
+
+/* TRACK NUMBER */
+
+.track-number{
+
+    width:45px;
+
+    color:#777777;
+
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    font-size:28px;
+
+}
+
+/* TRACK NAME */
+
+.track-name{
+
+    font-size:28px;
+
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    letter-spacing:0.5px;
+
+    text-transform:uppercase;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .tracklist-panel{
+
+        padding:30px 22px;
+
+    }
+
+    .tracklist-panel-title{
+
+        font-size:38px;
+
+    }
+
+    .track-name{
+
+        font-size:18px;
+
+    }
+
+    .track-number{
+
+        font-size:20px;
+
+        width:32px;
+
+    }
+
+}
+    
+
+
+
+    
+    
 /* =========================
 STREAMING SECTION
 ========================= */
@@ -854,6 +1000,79 @@ RESPONSIVE
 
 </section>
 
+<!-- TRACKLIST PANEL -->
+
+<section class="tracklist-section">
+
+<div class="section-inner">
+
+    <div class="tracklist-panel">
+
+        <h2 class="tracklist-panel-title">
+            TRACKLIST
+        </h2>
+
+        <div class="tracklist-line"></div>
+
+        <div class="track-item">
+            <div class="track-number">01</div>
+            <div class="track-name">Pongo en adopción a mi perro</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">02</div>
+            <div class="track-name">Detrás de los cristales</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">03</div>
+            <div class="track-name">Para mí</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">04</div>
+            <div class="track-name">No aprendí a bailar</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">05</div>
+            <div class="track-name">
+                Demasiado viejos para cantar rap
+            </div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">06</div>
+            <div class="track-name">Pánico al pogo</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">07</div>
+            <div class="track-name">Es lo que hay</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">08</div>
+            <div class="track-name">Pésimo servicio</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">09</div>
+            <div class="track-name">Tal vez</div>
+        </div>
+
+        <div class="track-item">
+            <div class="track-number">10</div>
+            <div class="track-name">Suficiente</div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+    
 <!-- STREAMING -->
 
 <section class="streaming-section">
