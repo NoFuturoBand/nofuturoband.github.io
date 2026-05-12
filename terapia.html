@@ -200,13 +200,12 @@ HERO
 
 .hero-section{
 
-    background:#f5f1e8;
+    background:#f2f2f2;
 
-    border-bottom:1px solid #dfd8ca;
+    border-bottom:1px solid #dddddd;
 
 }
 
-    
 .hero{
 
     display:grid;
@@ -251,20 +250,21 @@ HERO
 
 }
 
-/* TEXT BLOCK */
-
-.text-block{
-
-    margin-bottom:50px;
-
-}
-
+/* HERO TEXT */
 
 .hero-text p{
 
     color:#111111;
 
     font-size:18px;
+
+}
+
+/* TEXT BLOCK */
+
+.text-block{
+
+    margin-bottom:50px;
 
 }
 
@@ -311,6 +311,8 @@ STREAMING SECTION
     letter-spacing:2px;
 
     margin-bottom:40px;
+
+    text-align:center;
 
 }
 
@@ -365,6 +367,180 @@ STREAMING SECTION
 }
 
 /* =========================
+GALLERY SECTION
+========================= */
+
+.gallery-section{
+
+    background:#111111;
+
+    border-bottom:1px solid #2a2a2a;
+
+}
+
+/* GALLERY TITLE */
+
+.gallery-title{
+
+    font-size:56px;
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+    color:white;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    letter-spacing:1px;
+
+}
+
+/* COLLAGE */
+
+.collage{
+
+    display:grid;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    gap:12px;
+
+}
+
+/* IMAGES */
+
+.collage img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+    border-radius:10px;
+
+}
+
+.collage img:hover{
+
+    opacity:0.8;
+
+    transform:scale(1.01);
+
+}
+
+/* BIG IMAGE */
+
+.big{
+
+    grid-column:span 2;
+
+}
+
+/* =========================
+LIGHTBOX
+========================= */
+
+.lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.95);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    padding:20px;
+
+}
+
+/* ACTIVE */
+
+.lightbox.active{
+
+    display:flex;
+
+}
+
+/* IMAGE */
+
+.lightbox img{
+
+    max-width:90%;
+
+    max-height:85vh;
+
+    object-fit:contain;
+
+}
+
+/* CLOSE */
+
+.close-lightbox{
+
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    font-size:36px;
+
+    color:#ff3b30;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+/* ARROWS */
+
+.arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:50px;
+
+    color:white;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    padding:20px;
+
+}
+
+.arrow-left{
+
+    left:10px;
+
+}
+
+.arrow-right{
+
+    right:10px;
+
+}
+
+/* =========================
 CREDITS SECTION
 ========================= */
 
@@ -410,12 +586,6 @@ p a{
 
 }
 
-p a:hover{
-
-    opacity:0.6;
-
-}
-
 /* =========================
 CONTACT SECTION
 ========================= */
@@ -442,12 +612,8 @@ footer{
 
 }
 
-/* FOOTER INNER */
-
 .footer-inner{
 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
     max-width:1200px;
 
     margin:auto;
@@ -467,11 +633,10 @@ footer{
     letter-spacing:1px;
 
     color:#999999;
-    
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
-
-/* FOOTER LINKS */
 
 .footer-inner a{
 
@@ -501,9 +666,13 @@ RESPONSIVE
 
     }
 
-}
+    .gallery-title{
 
-/* MOBILE */
+        font-size:40px;
+
+    }
+
+}
 
 @media(max-width:600px){
 
@@ -537,6 +706,18 @@ RESPONSIVE
 
     }
 
+    .collage{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .big{
+
+        grid-column:span 2;
+
+    }
+
     .footer-inner{
 
         flex-direction:column;
@@ -553,9 +734,7 @@ RESPONSIVE
 
 <body>
 
-<!-- =========================
-HEADER
-========================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -604,10 +783,6 @@ HEADER
 </div>
 
 </header>
-
-<!-- =========================
-MAIN
-========================= -->
 
 <main>
 
@@ -696,6 +871,56 @@ MAIN
 
 </section>
 
+<!-- GALLERY -->
+
+<section class="gallery-section">
+
+<div class="section-inner">
+
+    <h2 class="gallery-title">
+        PROCESS / CHAOS
+    </h2>
+
+    <div class="collage">
+
+        <!-- REEMPLAZA LOS NOMBRES POR TUS FOTOS -->
+
+        <img src="assets/fotos/1.jpg" onclick="openLightbox(0)">
+
+        <img src="assets/fotos/2.jpg" onclick="openLightbox(1)">
+
+        <img src="assets/fotos/3.jpg" onclick="openLightbox(2)">
+
+        <img src="assets/fotos/4.jpg" onclick="openLightbox(3)">
+
+        <img src="assets/fotos/5.jpg" class="big" onclick="openLightbox(4)">
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+    <div class="close-lightbox" onclick="closeLightbox()">
+        ✕
+    </div>
+
+    <div class="arrow arrow-left" onclick="prevImage()">
+        ‹
+    </div>
+
+    <img id="lightboxImage">
+
+    <div class="arrow arrow-right" onclick="nextImage()">
+        ›
+    </div>
+
+</div>
+
 <!-- CREDITS -->
 
 <section class="credits-section">
@@ -704,65 +929,14 @@ MAIN
 
 <div class="credits">
 
-    <h2 class="section-title">
-        PRODUCIDO EN IOESTUDIOS POR NO FUTURO
-    </h2>
-
-    <p>
-        No futuro son:<br>
-        Hesner Durán - Voz, bajo<br>
-        Milo Escorcia - Batería
-    </p>
-
-    <p>
-        Baterías grabadas en 
-        <a href="https://instagram.com/baltika_records" target="_blank">
-            @baltika_records
-        </a>
-        en la ciudad de Bogotá.
-    </p>
-
-<div class="song-credits">
-
-“Pongo en adopción a mi perro”: voz, bajo y guitarra por Hesner Durán, batería por Damián Orbegozo, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
-
-“Detrás de los cristales”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
-
-“Para mí”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias por Milo Escorcia y Damián Orbegozo.<br><br>
-
-“No aprendí a bailar”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias Milo Escorcia y Damián Orbegozo.<br><br>
-
-“Demasiado viejos para cantar rap por eso cantamos punk”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
-
-“Pánico al pogo”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia, voces secundarias Milo Escorcia y Damián Orbegozo.<br><br>
-
-“Es lo que hay”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
-
-“Pésimo servicio”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
-
-“Tal vez”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.<br><br>
-
-“Suficiente”: voz principal, bajo y guitarra por Hesner Durán, batería por Milo Escocia.
-
-</div>
-
-<p>
-Portada: Helena Durán<br>
-Producción artística: Milo Escorcia<br>
-Producción musical: Hesner Durán<br>
-Fotografía: Caro Gamboa
-</p>
-
 <h2 class="section-title">
-    AGRADECIMIENTOS ESPECIALES
+PRODUCIDO EN IOESTUDIOS POR NO FUTURO
 </h2>
 
 <p>
-De parte de Hesner: A Laura Peña por ser mi compañía, mi estructura de vida y mi pasión. A Helena Durán por ser la inspiración y la esperanza de un futuro mejor. A Milo por ser parte de la locura de ser músico cuando no se es. A Dami por enseñarnos en la música algo más allá de lo que se escucha.
-</p>
-
-<p>
-De parte de Milo: Caro Gamboa
+No futuro son:<br>
+Hesner Durán - Voz, bajo<br>
+Milo Escorcia - Batería
 </p>
 
 </div>
@@ -777,13 +951,13 @@ De parte de Milo: Caro Gamboa
 
 <div class="section-inner">
 
-    <h2 class="section-title">
-        CONTACTO
-    </h2>
+<h2 class="section-title">
+CONTACTO
+</h2>
 
-    <p>
-        nofuturoband@gmail.com
-    </p>
+<p>
+nofuturoband@gmail.com
+</p>
 
 </div>
 
@@ -791,9 +965,7 @@ De parte de Milo: Caro Gamboa
 
 </main>
 
-<!-- =========================
-FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -819,6 +991,8 @@ FOOTER
 
 <script>
 
+/* MOBILE MENU */
+
 function toggleMenu(){
 
     const menu =
@@ -829,6 +1003,118 @@ function toggleMenu(){
     menu.classList.toggle("show");
 
 }
+
+/* GALLERY */
+
+const images = [
+
+    "assets/fotos/1.jpg",
+    "assets/fotos/2.jpg",
+    "assets/fotos/3.jpg",
+    "assets/fotos/4.jpg",
+    "assets/fotos/5.jpg"
+
+];
+
+let currentImage = 0;
+
+/* OPEN */
+
+function openLightbox(index){
+
+    currentImage = index;
+
+    document.getElementById(
+        "lightbox"
+    ).classList.add("active");
+
+    document.getElementById(
+        "lightboxImage"
+    ).src = images[currentImage];
+
+}
+
+/* CLOSE */
+
+function closeLightbox(){
+
+    document.getElementById(
+        "lightbox"
+    ).classList.remove("active");
+
+}
+
+/* NEXT */
+
+function nextImage(){
+
+    currentImage++;
+
+    if(currentImage >= images.length){
+
+        currentImage = 0;
+
+    }
+
+    document.getElementById(
+        "lightboxImage"
+    ).src = images[currentImage];
+
+}
+
+/* PREVIOUS */
+
+function prevImage(){
+
+    currentImage--;
+
+    if(currentImage < 0){
+
+        currentImage =
+        images.length - 1;
+
+    }
+
+    document.getElementById(
+        "lightboxImage"
+    ).src = images[currentImage];
+
+}
+
+/* KEYBOARD */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            document.getElementById(
+                "lightbox"
+            ).classList.contains("active")
+        ){
+
+            if(event.key === "ArrowRight"){
+
+                nextImage();
+
+            }
+
+            if(event.key === "ArrowLeft"){
+
+                prevImage();
+
+            }
+
+            if(event.key === "Escape"){
+
+                closeLightbox();
+
+            }
+
+        }
+
+    }
+);
 
 </script>
 
