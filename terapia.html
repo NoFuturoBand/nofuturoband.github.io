@@ -452,6 +452,7 @@ LIGHTBOX
 
 .lightbox{
 
+
     position:fixed;
 
     inset:0;
@@ -463,6 +464,8 @@ LIGHTBOX
     justify-content:center;
 
     align-items:center;
+
+    flex-direction:column;
 
     z-index:9999;
 
@@ -1083,16 +1086,8 @@ const images = [
 
 let currentImage = 0;
 
-/* OPEN */
 
-function openLightbox(index){
-
-    currentImage = index;
-
-    const lightbox =
-    document.getElementById(
-        "lightbox"
-    );
+function renderMedia(){
 
     const container =
     document.getElementById(
@@ -1102,11 +1097,7 @@ function openLightbox(index){
     const file =
     images[currentImage];
 
-    lightbox.classList.add(
-        "active"
-    );
-
-    /* DETECT VIDEO */
+    /* VIDEO */
 
     if(
         file.endsWith(".MP4") ||
@@ -1150,6 +1141,20 @@ function openLightbox(index){
 
     }
 
+}    
+
+/* OPEN */
+
+function openLightbox(index){
+
+    currentImage = index;
+
+    document.getElementById(
+        "lightbox"
+    ).classList.add("active");
+
+    renderMedia();
+
 }
 
 /* CLOSE */
@@ -1174,9 +1179,7 @@ function nextImage(){
 
     }
 
-    document.getElementById(
-        "lightboxImage"
-    ).src = images[currentImage];
+    renderMedia();
 
 }
 
@@ -1193,9 +1196,7 @@ function prevImage(){
 
     }
 
-    document.getElementById(
-        "lightboxImage"
-    ).src = images[currentImage];
+    renderMedia();
 
 }
 
