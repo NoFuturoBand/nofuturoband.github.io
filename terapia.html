@@ -935,6 +935,55 @@ RESPONSIVE
 
 }
 
+/* =========================
+COPY POPUP
+========================= */
+
+.copy-popup{
+
+    position:fixed;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#ff1a1a;
+
+    color:white;
+
+    padding:16px 26px;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:0.25s;
+
+    z-index:99999;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+
+}
+
+/* SHOW */
+
+.show-popup{
+
+    opacity:1;
+
+    bottom:45px;
+
+}
+
+    
 </style>
 
 </head>
@@ -1285,6 +1334,13 @@ De parte de Milo: Caro Gamboa
 
 </div>
 
+<!-- COPY POPUP -->
+
+<div id="copyPopup" class="copy-popup">
+    nofuturoband@gmail.com copiado
+</div>
+
+    
 </footer>
 
 <script>
@@ -1450,9 +1506,22 @@ function copyEmail(event){
         "nofuturoband@gmail.com"
     );
 
-    alert(
-        "nofuturoband@gmail.com"
+    const popup =
+    document.getElementById(
+        "copyPopup"
     );
+
+    popup.classList.add(
+        "show-popup"
+    );
+
+    setTimeout(() => {
+
+        popup.classList.remove(
+            "show-popup"
+        );
+
+    }, 2200);
 
 }
 
