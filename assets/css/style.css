@@ -24,6 +24,8 @@ body{
 
     line-height:1.6;
 
+    overflow-x:hidden;
+
 }
 
 /* =========================
@@ -204,13 +206,19 @@ HERO
 
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
 
     gap:80px;
 
     align-items:center;
 
     min-height:580px;
+
+}
+
+.hero > *{
+
+    min-width:0;
 
 }
 
@@ -308,6 +316,8 @@ TRACKLIST PANEL
 .tracklist-panel{
 
     max-width:760px;
+
+    width:100%;
 
     margin:auto;
 
@@ -414,6 +424,8 @@ TRACKLIST PANEL
         font-size:38px;
 
     }
+
+    
 
     .track-name{
 
@@ -875,6 +887,22 @@ RESPONSIVE
 
 @media(max-width:600px){
 
+    .tracklist-panel{
+    
+        box-shadow:10px 10px 0px rgba(0,0,0,0.10);
+    
+    }
+    
+    .track-name{
+    
+        line-height:1.2;
+    
+        word-break:break-word;
+    
+    }
+
+
+    
     .desktop-menu{
 
         display:none;
