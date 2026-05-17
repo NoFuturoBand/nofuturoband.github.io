@@ -53,11 +53,11 @@ header{
 
     top:0;
 
+    left:0;
+
     background:#111111;
 
     z-index:1000;
-
-    backdrop-filter:blur(10px);
 
 }
 
@@ -381,19 +381,14 @@ TRACKLIST PANEL
 /* TRACK ITEMS */
 
 .track-item{
-
     display:flex;
-
-    align-items:center;
-
+    align-items:flex-start;
     gap:20px;
-
     padding:14px 0;
-
     border-bottom:1px solid rgba(255,255,255,0.08);
-
     color:#f2f2f2;
-
+    width:100%;
+    min-width:0;
 }
 
 /* TRACK NUMBER */
@@ -421,6 +416,12 @@ TRACKLIST PANEL
     letter-spacing:0.5px;
 
     text-transform:uppercase;
+
+    flex:1;
+
+    min-width:0;
+
+    overflow-wrap:break-word;
 
 }
 
@@ -1035,6 +1036,16 @@ RESPONSIVE
 
         text-align:center;
 
+    }
+
+        .hero{
+        width:100%;
+        overflow:hidden;
+    }
+
+    .tracklist-panel{
+        width:100%;
+        max-width:100%;
     }
 
 }
