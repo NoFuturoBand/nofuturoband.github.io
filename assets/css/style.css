@@ -10,6 +10,15 @@ RESET
     box-sizing:border-box;
 }
 
+html,
+body{
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+
 /* =========================
 BODY
 ========================= */
@@ -56,6 +65,8 @@ header{
 
 .header-content{
 
+    width:100%;
+
     max-width:1200px;
 
     margin:auto;
@@ -66,9 +77,11 @@ header{
 
     align-items:center;
 
-    gap:40px;
+    gap:20px;
 
     min-height:48px;
+
+    min-width:0;
 
 }
 
@@ -77,6 +90,8 @@ header{
 .logo{
 
     font-size:38px;
+
+    max-width:100%;
 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
@@ -886,6 +901,75 @@ RESPONSIVE
 }
 
 @media(max-width:600px){
+
+    header{
+    
+        padding:10px 14px;
+    
+    }
+    
+    .header-content{
+    
+        gap:12px;
+    
+        width:100%;
+    
+    }
+    
+    .logo{
+    
+        font-size:30px;
+    
+        line-height:1;
+    
+    }
+    
+    .mobile-menu{
+    
+        flex-shrink:0;
+    
+    }
+    
+    .tracklist-panel{
+    
+        width:100%;
+    
+        max-width:100%;
+    
+        padding:28px 18px;
+    
+        box-shadow:none;
+    
+    }
+    
+    .track-item{
+    
+        gap:12px;
+    
+    }
+    
+    .track-name{
+    
+        font-size:16px;
+    
+        line-height:1.15;
+    
+        overflow-wrap:anywhere;
+    
+    }
+    
+    .track-number{
+    
+        width:28px;
+    
+        font-size:18px;
+    
+        flex-shrink:0;
+    
+    }
+
+
+    
 
     .tracklist-panel{
     
