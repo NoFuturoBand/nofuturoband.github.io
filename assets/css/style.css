@@ -93,13 +93,21 @@ header{
 
     font-size:38px;
 
-    max-width:100%;
-
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
     letter-spacing:1px;
 
     color:#d62828;
+
+    flex:1;
+
+    min-width:0;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
 
 }
 
@@ -146,6 +154,18 @@ header{
     font-size:28px;
 
     cursor:pointer;
+
+    width:36px;
+
+    height:36px;
+
+    flex-shrink:0;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#ffffff;
 
 }
 
