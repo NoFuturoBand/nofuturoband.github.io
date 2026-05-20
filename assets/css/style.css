@@ -977,7 +977,7 @@ RESPONSIVE
 
     .section-inner{
 
-        padding:50px 20px;
+        padding:40px 12px;
 
     }
 
@@ -1003,27 +1003,29 @@ RESPONSIVE
 
     }
 
-    .tracklist-panel{
-
+     .tracklist-panel{
+    
         width:100%;
-
+    
         max-width:100%;
-
-        padding:28px 18px;
-
+    
+        padding:28px 14px;
+    
         box-shadow:none;
-
+    
     }
 
     .track-item{
     
         display:grid;
     
-        grid-template-columns:24px 1fr;
+        grid-template-columns:20px minmax(0,1fr);
     
-        gap:10px;
+        column-gap:10px;
     
         align-items:start;
+    
+        width:100%;
     
     }
 
@@ -1039,13 +1041,15 @@ RESPONSIVE
 
     .track-name{
     
-        font-size:16px;
+        font-size:15px;
     
-        line-height:1.15;
+        line-height:1.2;
+    
+        letter-spacing:0.2px;
     
         word-break:normal;
     
-        overflow-wrap:break-word;
+        overflow-wrap:normal;
     
     }
 
