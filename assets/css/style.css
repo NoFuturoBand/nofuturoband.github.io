@@ -976,9 +976,9 @@ RESPONSIVE
     }
 
     .section-inner{
-
-        padding:40px 12px;
-
+    
+        padding:40px 0;
+    
     }
 
     .hero{
@@ -1003,15 +1003,19 @@ RESPONSIVE
 
     }
 
-     .tracklist-panel{
+    .tracklist-panel{
     
-        width:100%;
+        width:calc(100vw - 24px);
     
-        max-width:100%;
+        max-width:none;
     
-        padding:28px 14px;
+        margin:0 auto;
+    
+        padding:28px 18px;
     
         box-shadow:none;
+    
+        overflow:hidden;
     
     }
 
