@@ -350,13 +350,19 @@ TRACKLIST PANEL
 
 .tracklist-panel{
 
+    max-width:760px;
+
     width:100%;
 
-    max-width:100%;
+    margin:auto;
 
-    padding:28px 0;
+    background:#111111;
 
-    box-shadow:none;
+    padding:50px;
+
+    box-shadow:18px 18px 0px rgba(0,0,0,0.12);
+
+    position:relative;
 
 }
 
@@ -364,8 +370,6 @@ TRACKLIST PANEL
 
 .tracklist-panel-title{
 
-    padding-left:18px;
-    
     font-size:54px;
 
     color:#d62828;
@@ -384,8 +388,6 @@ TRACKLIST PANEL
 
 .tracklist-line{
 
-    padding-left:18px;
-    
     width:100%;
 
     height:2px;
@@ -399,7 +401,6 @@ TRACKLIST PANEL
 /* TRACK ITEMS */
 
 .track-item{
-    padding-left:18px;
     display:flex;
     align-items:flex-start;
     gap:20px;
@@ -1038,6 +1039,8 @@ RESPONSIVE
 
     line-height:1.2;
 
+         overflow-wrap:anywhere;
+
     }
 
     .collage{
@@ -1112,4 +1115,3 @@ COPY POPUP
 
     
 </style>
-
