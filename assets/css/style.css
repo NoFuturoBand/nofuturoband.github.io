@@ -43,8 +43,6 @@ HEADER
 
 header{
 
-    width:100%;
-
     border-bottom:1px solid #2a2a2a;
 
     padding:10px 20px;
@@ -66,8 +64,6 @@ header{
 /* HEADER CONTENT */
 
 .header-content{
-
-    width:100%;
 
     max-width:1200px;
 
@@ -935,10 +931,6 @@ RESPONSIVE
 
     .header-content{
 
-        width:100%;
-
-        max-width:100%;
-
         gap:10px;
 
         overflow:hidden;
@@ -1043,11 +1035,11 @@ RESPONSIVE
 
     .track-name{
 
-        font-size:16px;
+    font-size:15px;
 
-        line-height:1.15;
+    line-height:1.2;
 
-        overflow-wrap:anywhere;
+         overflow-wrap:anywhere;
 
     }
 
