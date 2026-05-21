@@ -449,32 +449,29 @@ TRACKLIST PANEL
 
 @media(max-width:700px){
 
+    .tracklist-section .section-inner{
+        padding-left:0;
+        padding-right:0;
+    }
+
     .tracklist-panel{
-
+        width:100%;
+        max-width:100%;
         padding:30px 22px;
-
+        box-shadow:none;
     }
 
     .tracklist-panel-title{
-
         font-size:38px;
-
     }
 
-    
-
     .track-name{
-
         font-size:18px;
-
     }
 
     .track-number{
-
         font-size:20px;
-
         width:32px;
-
     }
 
 }
@@ -1003,56 +1000,31 @@ RESPONSIVE
 
     }
 
-     .tracklist-panel{
-    
-        width:100%;
-    
-        max-width:100%;
-    
+    .tracklist-panel{
         padding:28px 14px;
-    
-        box-shadow:none;
-    
     }
 
     .track-item{
-    
         display:grid;
-    
-        grid-template-columns:20px minmax(0,1fr);
-    
+        grid-template-columns:28px minmax(0,1fr);
         column-gap:10px;
-    
         align-items:start;
-    
         width:100%;
-    
     }
 
     .track-number{
-    
         width:auto;
-    
         font-size:18px;
-    
         line-height:1.1;
-    
     }
 
     .track-name{
-    
         font-size:15px;
-    
         line-height:1.2;
-    
         letter-spacing:0.2px;
-    
-        word-break:normal;
-    
-        overflow-wrap:normal;
-    
     }
 
+    
     .collage{
 
         grid-template-columns:1fr 1fr;
