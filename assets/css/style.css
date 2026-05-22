@@ -225,15 +225,6 @@ SECTION BASE
 
 }
 
-.tracklist-section{
-    overflow-x:hidden;
-}
-
-.tracklist-section .section-inner{
-    padding-left:0;
-    padding-right:0;
-    overflow-x:hidden;
-}
 
 /* =========================
 HERO
@@ -344,135 +335,6 @@ HERO
 }
 
 
-/* =========================
-TRACKLIST PANEL
-========================= */
-
-.tracklist-section{
-
-    background:#f2f2f2;
-
-    border-bottom:1px solid #dddddd;
-
-}
-
-/* PANEL */
-
-.tracklist-panel{
-
-    max-width:760px;
-
-    width:100%;
-
-    margin:auto;
-
-    background:#111111;
-
-    padding:50px;
-
-    box-shadow:18px 18px 0px rgba(0,0,0,0.12);
-
-    position:relative;
-
-    overflow-x:hidden;
-
-}
-
-/* TRACKLIST TITLE */
-
-.tracklist-panel-title{
-
-    font-size:54px;
-
-    color:#d62828;
-
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-    text-transform:uppercase;
-
-    margin-bottom:25px;
-
-    letter-spacing:1px;
-
-    max-width:100%;
-
-    box-sizing:border-box;
-
-    overflow:hidden;
-
-}
-
-/* TRACKLIST LINE */
-
-.tracklist-line{
-
-    width:100%;
-
-    max-width:100%;
-
-    height:2px;
-
-    background:#f2f2f2;
-
-    margin-bottom:30px;
-
-    display:block;
-
-    box-sizing:border-box;
-
-}
-
-/* TRACK ITEMS */
-
-.track-item{
-    display:flex;
-    align-items:flex-start;
-    gap:20px;
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    color:#f2f2f2;
-    width:100%;
-    min-width:0;
-}
-
-/* TRACK NUMBER */
-
-.track-number{
-
-    width:45px;
-
-    color:#777777;
-
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-    font-size:28px;
-
-}
-
-/* TRACK NAME */
-
-.track-name{
-
-    font-size:28px;
-
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-    letter-spacing:0.5px;
-
-    text-transform:uppercase;
-
-    flex:1;
-
-    min-width:0;
-
-    overflow-wrap:break-word;
-
-}
-
-
-    
-
-
 
     
     
@@ -565,6 +427,117 @@ STREAMING SECTION
     transform:translateY(-2px);
 
 }
+
+/* =========================
+TRACKLIST
+========================= */
+
+.tracklist-section{
+    background:#111111;
+    border-bottom:1px solid #2a2a2a;
+    overflow:hidden;
+    width:100%;
+}
+
+.tracklist-section .section-inner{
+    max-width:680px;
+    padding:50px 20px;
+    box-sizing:border-box;
+}
+
+.tracklist-panel{
+    width:100%;
+    background:#1a1a1a;
+    border:1px solid #2e2e2e;
+    padding:40px 36px 36px 36px;
+    box-sizing:border-box;
+}
+
+.tracklist-panel-title{
+    font-family:'Courier New', Courier, monospace;
+    font-size:26px;
+    font-weight:900;
+    color:#ffffff;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:16px;
+    box-sizing:border-box;
+    width:100%;
+}
+
+.tracklist-line{
+    width:100%;
+    height:1px;
+    background:#3a3a3a;
+    margin-bottom:24px;
+    display:block;
+    box-sizing:border-box;
+}
+
+.track-item{
+    display:flex;
+    flex-direction:row;
+    align-items:baseline;
+    gap:20px;
+    padding:11px 0;
+    border-bottom:1px solid #2a2a2a;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.track-item:last-of-type{
+    border-bottom:none;
+}
+
+.track-number{
+    font-family:'Courier New', Courier, monospace;
+    font-size:13px;
+    color:#666666;
+    min-width:22px;
+    flex-shrink:0;
+    letter-spacing:0.5px;
+}
+
+.track-name{
+    font-family:'Courier New', Courier, monospace;
+    font-size:14px;
+    font-weight:700;
+    color:#ffffff;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    flex:1;
+    min-width:0;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+    line-height:1.4;
+}
+
+@media(max-width:600px){
+
+    .tracklist-section .section-inner{
+        padding:30px 16px;
+    }
+
+    .tracklist-panel{
+        padding:28px 20px;
+    }
+
+    .tracklist-panel-title{
+        font-size:20px;
+    }
+
+    .track-name{
+        font-size:13px;
+    }
+
+    .track-number{
+        font-size:12px;
+    }
+
+}
+
+
+
 
 /* =========================
 GALLERY SECTION
@@ -906,53 +879,6 @@ RESPONSIVE
 
 }
 
-@media(max-width:700px){
-
-    .tracklist-section{
-        overflow:hidden;
-    }
-
-    .tracklist-section .section-inner{
-        padding-left:16px;
-        padding-right:16px;
-        overflow:hidden;
-    }
-
-    .tracklist-panel{
-        width:100%;
-        max-width:100%;
-        padding:30px 20px;
-        box-shadow:none;
-        overflow:hidden;
-    }
-
-    .tracklist-panel-title{
-        font-size:38px;
-    }
-
-    .track-item{
-        display:flex;
-        align-items:flex-start;
-        gap:12px;
-        width:100%;
-    }
-
-    .track-number{
-        font-size:20px;
-        width:30px;
-        flex-shrink:0;
-    }
-
-    .track-name{
-        font-size:18px;
-        flex:1;
-        min-width:0;
-        word-break:break-word;
-        overflow-wrap:break-word;
-        white-space:normal;
-    }
-
-}
 
 @media(max-width:600px){
 
@@ -991,44 +917,7 @@ RESPONSIVE
         padding:40px 12px;
     }
 
-    .tracklist-section .section-inner{
-        padding-left:0;
-        padding-right:0;
-    }
-
-    .tracklist-panel{
-        width:100%;
-        max-width:100%;
-        padding:24px 16px;
-        box-shadow:none;
-        overflow:hidden;
-    }
-
-    .track-item{
-        display:flex;
-        align-items:flex-start;
-        gap:10px;
-        width:100%;
-    }
-
-    .track-number{
-        width:28px;
-        font-size:16px;
-        flex-shrink:0;
-        line-height:1.3;
-    }
-
-    .track-name{
-        font-size:15px;
-        flex:1;
-        min-width:0;
-        word-break:break-word;
-        overflow-wrap:break-word;
-        white-space:normal;
-        line-height:1.3;
-        letter-spacing:0.2px;
-    }
-
+    
     .hero{
         grid-template-columns:1fr;
         gap:40px;
