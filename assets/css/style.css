@@ -449,7 +449,7 @@ TRACKLIST
     width:100%;
     background:#1a1a1a;
     border:1px solid #2e2e2e;
-    padding:40px 36px 36px 36px;
+    padding:24px 36px 36px 36px;
     box-sizing:border-box;
 }
 
@@ -489,8 +489,8 @@ TRACKLIST
 }
 
 .track-number{
-    font-family:'Courier New', Courier, monospace;
-    font-size:13px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:16px;
     color:#666666;
     min-width:22px;
     flex-shrink:0;
@@ -498,9 +498,8 @@ TRACKLIST
 }
 
 .track-name{
-    font-family:'Courier New', Courier, monospace;
-    font-size:14px;
-    font-weight:700;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:18px;
     color:#ffffff;
     text-transform:uppercase;
     letter-spacing:1px;
