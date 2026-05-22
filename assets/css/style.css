@@ -1093,10 +1093,14 @@ COPY POPUP
     bottom:45px;
 
 }
-    
-</style>
+
 
 /* DEBUG - BORRAR DESPUÉS */
 * {
     outline: 1px solid red;
 }
+
+
+
+
+</style>
