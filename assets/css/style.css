@@ -433,8 +433,8 @@ TRACKLIST
 ========================= */
 
 .tracklist-section{
-    background:#111111;
-    border-bottom:1px solid #2a2a2a;
+    background:#f2f2f2;
+    border-bottom:1px solid #dddddd;
     overflow:hidden;
     width:100%;
 }
@@ -454,10 +454,9 @@ TRACKLIST
 }
 
 .tracklist-panel-title{
-    font-family:'Courier New', Courier, monospace;
-    font-size:26px;
-    font-weight:900;
-    color:#ffffff;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:54px;
+    color:#d62828;
     text-transform:uppercase;
     letter-spacing:1px;
     margin-bottom:16px;
@@ -523,7 +522,7 @@ TRACKLIST
     }
 
     .tracklist-panel-title{
-        font-size:20px;
+        font-size:36px;
     }
 
     .track-name{
