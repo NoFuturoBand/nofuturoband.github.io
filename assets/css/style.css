@@ -394,6 +394,12 @@ TRACKLIST PANEL
 
     letter-spacing:1px;
 
+    max-width:100%;
+
+    box-sizing:border-box;
+
+    overflow:hidden;
+
 }
 
 /* TRACKLIST LINE */
@@ -402,11 +408,17 @@ TRACKLIST PANEL
 
     width:100%;
 
+    max-width:100%;
+
     height:2px;
 
     background:#f2f2f2;
 
     margin-bottom:30px;
+
+    display:block;
+
+    box-sizing:border-box;
 
 }
 
@@ -1093,14 +1105,6 @@ COPY POPUP
     bottom:45px;
 
 }
-
-
-/* DEBUG - BORRAR DESPUÉS */
-* {
-    outline: 1px solid red;
-}
-
-
 
 
 </style>
