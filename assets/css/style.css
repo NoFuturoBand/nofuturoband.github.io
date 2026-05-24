@@ -1058,7 +1058,8 @@ QUIZ RESULT ACTIONS
 }
 
 .quiz-share-btn:hover{
-    background:#111111;
+    background:#ff3b30;
+    border-color:#ff3b30;
     color:#ffffff;
     transform:translateY(-2px);
 }
