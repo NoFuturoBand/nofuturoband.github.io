@@ -1020,6 +1020,92 @@ QUIZ
 
 
 /* =========================
+LYRICS POPUP
+========================= */
+
+.lyrics-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    z-index:9000;
+}
+
+.lyrics-overlay.active{
+    display:block;
+}
+
+.lyrics-popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:90%;
+    max-width:600px;
+    max-height:80vh;
+    background:#111111;
+    border:1px solid #2a2a2a;
+    border-radius:14px;
+    padding:40px 36px 36px 36px;
+    overflow-y:auto;
+    z-index:9001;
+    box-sizing:border-box;
+}
+
+.lyrics-popup.active{
+    display:block;
+}
+
+.lyrics-close{
+    position:absolute;
+    top:16px;
+    right:20px;
+    font-size:24px;
+    color:#ff3b30;
+    cursor:pointer;
+    font-weight:bold;
+    line-height:1;
+}
+
+.lyrics-close:hover{
+    color:#ffffff;
+}
+
+.lyrics-title{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:22px;
+    color:#d62828;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:24px;
+    padding-right:30px;
+    line-height:1.2;
+}
+
+.lyrics-body{
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:16px;
+    color:#f2f2f2;
+    line-height:2;
+    white-space:pre-wrap;
+}
+
+/* TRACK ITEM CLICKEABLE */
+
+.track-item{
+    cursor:pointer;
+}
+
+.track-item:hover .track-name{
+    color:#d62828;
+}
+
+.track-item:hover .track-number{
+    color:#aaaaaa;
+}
+
+/* =========================
 COPY POPUP
 ========================= */
 
