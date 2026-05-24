@@ -1018,6 +1018,44 @@ QUIZ
     color:#333333;
 }
 
+/* =========================
+QUIZ RESULT ACTIONS
+========================= */
+
+.quiz-actions{
+    max-width:320px;
+    margin:20px auto 0 auto;
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.quiz-share-btn{
+    width:58px;
+    min-width:58px;
+    height:58px;
+    border-radius:16px;
+    border:1px solid #111111;
+    background:#ffffff;
+    color:#111111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.25s;
+    font-size:24px;
+}
+
+.quiz-share-btn:hover{
+    background:#111111;
+    color:#ffffff;
+    transform:translateY(-2px);
+}
+
+.quiz-restart-btn{
+    flex:1;
+    margin:0;
+}
 
 /* =========================
 LYRICS POPUP
