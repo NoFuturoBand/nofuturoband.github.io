@@ -9,35 +9,52 @@
 
 <title>NO FUTURO</title>
 
-</head>
-
-<body>
-
 <script>
 
-// Fecha objetivo:
-// 29 de mayo 00:00
+/* =========================
+CONFIGURAR FECHA DE LANZAMIENTO
+========================= */
 
-const launchDate = new Date("2025-05-29T00:00:00");
+/*
+Formato:
+AÑO, MES-1, DÍA, HORA, MINUTO
 
-// Fecha actual
+IMPORTANTE:
+- Enero = 0
+- Febrero = 1
+- Mayo = 4
+*/
+
+const releaseDate = new Date(
+    2026, 4, 29, 0, 0
+);
+
+/* =========================
+REDIRECCIÓN
+========================= */
 
 const now = new Date();
 
-// Decisión
+if(now >= releaseDate){
 
-if(now >= launchDate){
-
-    window.location.href = "home.html";
+    window.location.href =
+    "terapia.html";
 
 }
+
 else{
 
-    window.location.href = "quiz.html";
+    window.location.href =
+    "quiz.html";
 
 }
 
 </script>
 
+</head>
+
+<body>
+
 </body>
+
 </html>
