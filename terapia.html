@@ -135,52 +135,52 @@
 
         <div class="tracklist-line"></div>
 
-        <div class="track-item">
+<div class="track-item" onclick="openLyrics(1)">
             <div class="track-number">01</div>
             <div class="track-name">Pongo en adopción a mi perro</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(2)">
             <div class="track-number">02</div>
             <div class="track-name">Detrás de los cristales</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(3)">
             <div class="track-number">03</div>
             <div class="track-name">Para mí</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(4)">
             <div class="track-number">04</div>
             <div class="track-name">No aprendí a bailar</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(5)">
             <div class="track-number">05</div>
             <div class="track-name">Demasiado viejos para cantar rap por eso cantamos punk</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(6)">
             <div class="track-number">06</div>
             <div class="track-name">Pánico al pogo</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(7)">
             <div class="track-number">07</div>
             <div class="track-name">Es lo que hay</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(8)">
             <div class="track-number">08</div>
             <div class="track-name">Pésimo servicio</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(9)">
             <div class="track-number">09</div>
             <div class="track-name">Tal vez</div>
         </div>
 
-        <div class="track-item">
+        <div class="track-item" onclick="openLyrics(10)">
             <div class="track-number">10</div>
             <div class="track-name">Suficiente</div>
         </div>
@@ -225,6 +225,26 @@
 
 </section>
 
+<!-- LYRICS POPUP -->
+
+<div class="lyrics-overlay" id="lyricsOverlay" onclick="closeLyrics()">
+</div>
+
+<div class="lyrics-popup" id="lyricsPopup">
+
+    <div class="lyrics-close" onclick="closeLyrics()">
+        ✕
+    </div>
+
+    <div class="lyrics-title" id="lyricsTitle">
+    </div>
+
+    <div class="lyrics-body" id="lyricsBody">
+    </div>
+
+</div>
+
+    
 <!-- LIGHTBOX -->
 
 <div class="lightbox" id="lightbox">
@@ -366,6 +386,53 @@ De parte de Milo: A mi humana principal Caro Gamboa que desde el principio me ac
 
 <script>
 
+/* LYRICS */
+
+const trackNames = [
+    "",
+    "Pongo en adopción a mi perro",
+    "Detrás de los cristales",
+    "Para mí",
+    "No aprendí a bailar",
+    "Demasiado viejos para cantar rap por eso cantamos punk",
+    "Pánico al pogo",
+    "Es lo que hay",
+    "Pésimo servicio",
+    "Tal vez",
+    "Suficiente"
+];
+
+function openLyrics(number){
+
+    const overlay = document.getElementById("lyricsOverlay");
+    const popup = document.getElementById("lyricsPopup");
+    const title = document.getElementById("lyricsTitle");
+    const body = document.getElementById("lyricsBody");
+
+    title.textContent = trackNames[number];
+    body.textContent = "Cargando...";
+
+    overlay.classList.add("active");
+    popup.classList.add("active");
+
+    fetch("assets/letras/" + number + ".txt")
+        .then(response => response.text())
+        .then(text => {
+            body.innerHTML = text.replace(/\n/g, "<br>");
+        })
+        .catch(() => {
+            body.textContent = "Letra no disponible.";
+        });
+
+}
+
+function closeLyrics(){
+
+    document.getElementById("lyricsOverlay").classList.remove("active");
+    document.getElementById("lyricsPopup").classList.remove("active");
+
+}
+    
 /* MOBILE MENU */
 
 function toggleMenu(){
