@@ -6,6 +6,7 @@
 <title>Match de Canción</title>
     
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 
 <style>
     body{
@@ -314,8 +315,6 @@ TU CANCIÓN ES
 
 }
 
-let audioPlaying = false;
-
 function togglePlay(){
 
     const audio = document.getElementById("quizAudio");
@@ -323,20 +322,17 @@ function togglePlay(){
 
     if(!audio) return;
 
-    if(!audioPlaying){
+    if(audio.paused){
         audio.currentTime = 0;
         audio.play();
-        audioPlaying = true;
         btn.textContent = "⏹";
     } else {
         audio.pause();
         audio.currentTime = 0;
-        audioPlaying = false;
         btn.textContent = "▶";
     }
 
     audio.onended = function(){
-        audioPlaying = false;
         btn.textContent = "▶";
     };
 
