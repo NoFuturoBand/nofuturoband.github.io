@@ -1203,34 +1203,5 @@ COPY POPUP
 
 }
 
-/* =========================
-QUIZ SITE LINK
-========================= */
-
-.quiz-site-link{
-
-    display:block;
-
-    margin-top:18px;
-
-    text-align:center;
-
-    font-size:16px;
-
-    font-weight:normal;
-
-    color:#666666;
-
-    text-decoration:none;
-
-    transition:0.2s;
-
-}
-
-.quiz-site-link:hover{
-
-    color:#d62828;
-
-}
 
 </style>
