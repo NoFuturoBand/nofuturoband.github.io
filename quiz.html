@@ -320,7 +320,17 @@ TU CANCIÓN ES
     transition:0.2s;
 ">▶</button>
 
-<a onclick="startQuiz()" class="platform-button quiz-btn">Intentar de nuevo</a>
+<div class="quiz-actions">
+
+<button class="quiz-share-btn" onclick="shareResult()">
+↗
+</button>
+
+<a onclick="startQuiz()" class="platform-button quiz-btn quiz-restart-btn">
+Intentar de nuevo
+</a>
+
+</div>
 
 `;
 
@@ -348,6 +358,35 @@ function togglePlay(){
     };
 
 }
+
+function shareResult(){
+
+    const shareData = {
+
+        title: "¿Qué canción de Punk de Terapia eres?",
+
+        text: "Hice el quiz de NO FUTURO y descubrí qué canción describe mi momento.",
+
+        url: "https://punkdeterapia.com/quiz.html"
+
+    };
+
+    if(navigator.share){
+
+        navigator.share(shareData);
+
+    }
+    else{
+
+        navigator.clipboard.writeText(shareData.url);
+
+        alert("Link copiado");
+
+    }
+
+}
+
+
     
 </script>
 
