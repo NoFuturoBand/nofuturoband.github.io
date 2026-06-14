@@ -1069,6 +1069,18 @@ QUIZ RESULT ACTIONS
     margin:0;
 }
 
+.quiz-divider{
+
+    max-width:320px;
+
+    height:1px;
+
+    background:#dddddd;
+
+    margin:24px auto 0 auto;
+
+}
+
 /* =========================
 LYRICS POPUP
 ========================= */
