@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,7 @@ Descubre qué canción describe tu momento.
 No hay respuestas correctas. Solo honestidad.
 </p>
 
-<a onclick="startQuiz()" class="platform-button quiz-btn">Comenzar</a>
+<button type="button" onclick="startQuiz()" class="platform-button quiz-btn">Comenzar</button>
 
 </div>
 
@@ -64,12 +64,6 @@ No hay respuestas correctas. Solo honestidad.
 
 <script>
 
-function toggleMenu(){
-    const menu = document.getElementById("mobileDropdown");
-    menu.classList.toggle("show");
-}
-
-    
 let step = 0;
 let answers = [];
 
@@ -79,7 +73,7 @@ const questions = [
 "¿Alguna vez alguien en quien confiabas te falló profundamente?",
 "¿Sientes que muchas cosas en tu vida no salen como quisieras?",
 "¿Evitas algunas situaciones por miedo a lo que podría pasar?",
-"Cuando algo duele, normalmente tú lo enfrentas?"
+"¿Cuando algo duele, normalmente tú lo enfrentas?"
 ];
 
 // Pesos emocionales
@@ -145,7 +139,7 @@ const songDescriptions = [
     // Pongo en adopción a mi perro
     "Esta canción es el inicio del caos: Un reconocimiento sobre la incapacidad de ser, el desesperado intento por encajar y la incapacidad de amar.",
     // Detrás de los cristales
-    "Esta canción retrata qué se siente al estar frente a un espejo 20 años despues y entender qué fue lo que sucedió. Un poco tarde. Siempre miope, a pesar de estar detrás de los cristales.",
+    "Esta canción retrata qué se siente al estar frente a un espejo 20 años después y entender qué fue lo que sucedió. Un poco tarde. Siempre miope, a pesar de estar detrás de los cristales.",
     // Para mí
     "Algunas personas tienen recuerdos preciados del colegio. Amigos que han durado toda la vida. Parte de la personalidad que somos hoy como adultos funcionales viene de allí. Para otras personas no fue tan así. De eso se trata esta canción.",
     //No aprendí a bailar
@@ -155,7 +149,7 @@ const songDescriptions = [
     //Pánico al pogo
     "¿Saben qué es ir a un toque con gafas y brackets?",
     //Es lo que hay
-    "Siempre hay forma de poder actuar de forma consecuente, respuetuosa y madura. Pero cambiar lo que somos no es una opción. Hay cosas que no no cambiarán, que no mejorarán. Aprendemos a vivir con ellas. Es posible que duela un poco, pero es lo que hay",
+    "Siempre hay forma de poder actuar de forma consecuente, respetuosa y madura. Pero cambiar lo que somos no es una opción. Hay cosas que no cambiarán, que no mejorarán. Aprendemos a vivir con ellas. Es posible que duela un poco, pero es lo que hay",
     //Pésimo servicio
     "Después de todo lo vivido. Después de aprender a sentir. Después de tocar el cielo. Ser sólo una decepción. Un pésimo servicio. Ser sólo un mal recuerdo y una calificación final: dos estrellas.",
     //Tal vez
@@ -181,8 +175,8 @@ if(step < questions.length){
 document.getElementById("app").innerHTML = `
 <h2 class="quiz-question">${questions[step]}</h2>
 
-<a onclick="answer(1)" class="platform-button quiz-btn">Sí</a>
-<a onclick="answer(0)" class="platform-button quiz-btn">No</a>
+<button type="button" onclick="answer(1)" class="platform-button quiz-btn">Sí</button>
+<button type="button" onclick="answer(0)" class="platform-button quiz-btn">No</button>
 
 ${getHistoryHTML()}
 `;
@@ -317,7 +311,7 @@ TU CANCIÓN ES
 
 <audio id="quizAudio" src="${audioSrc}" preload="auto"></audio>
 
-<button id="playBtn" onclick="togglePlay()" style="
+<button type="button" id="playBtn" aria-label="Reproducir muestra" onclick="togglePlay()" style="
     background:#d62828;
     color:#ffffff;
     border:none;
@@ -333,13 +327,13 @@ TU CANCIÓN ES
 
 <div class="quiz-actions">
 
-<button class="quiz-share-btn" onclick="shareResult()">
+<button type="button" class="quiz-share-btn" aria-label="Compartir" onclick="shareResult()">
 ⇪
 </button>
 
-<a onclick="startQuiz()" class="platform-button quiz-btn quiz-restart-btn">
+<button type="button" onclick="startQuiz()" class="platform-button quiz-btn quiz-restart-btn">
 Intentar de nuevo
-</a>
+</button>
 
 </div>
 

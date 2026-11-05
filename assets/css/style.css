@@ -1,4 +1,3 @@
-<style>
 
 /* =========================
 RESET
@@ -264,6 +263,8 @@ HERO
 
     width:100%;
 
+    height:auto;
+
     display:block;
 
     border-radius:18px;
@@ -484,7 +485,7 @@ TRACKLIST
     box-sizing:border-box;
 }
 
-.track-item:last-of-type{
+.track-item:has(+ .tracklist-line){
     border-bottom:none;
 }
 
@@ -974,6 +975,10 @@ QUIZ
 
 .quiz-btn{
     display:block;
+    width:100%;
+    font-family:inherit;
+    font-size:inherit;
+    line-height:inherit;
     max-width:320px;
     margin:12px auto;
     cursor:pointer;
@@ -1247,4 +1252,3 @@ COPY POPUP
 }
 
 
-</style>
