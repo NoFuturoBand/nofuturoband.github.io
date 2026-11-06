@@ -39,7 +39,51 @@
 </head>
 
 <body>
-    
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-content">
+
+    <a class="logo" href="/">
+        NO FUTURO
+    </a>
+
+  <nav class="desktop-menu">
+  
+      <a href="https://nofuturo.com" target="_blank">
+          NOFUTURO.COM
+      </a>
+  
+      <a href="https://punkdeterapia.com/quiz.html">
+          TERAPIA
+      </a>
+  
+  </nav>
+
+    <div class="mobile-menu" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Abrir menú" aria-controls="mobileDropdown" aria-expanded="false">
+        ☰
+    </div>
+
+</div>
+
+<div id="mobileDropdown" class="mobile-dropdown">
+
+    <a href="https://nofuturo.com" target="_blank">
+        NOFUTURO.COM
+    </a>
+
+    <a href="https://punkdeterapia.com/quiz.html">
+        TERAPIA
+    </a>
+
+</div>
+
+</header>
+
+<main>
+
 <section class="hero-section">
 
 <div class="section-inner">
@@ -62,7 +106,42 @@ No hay respuestas correctas. Solo honestidad.
 
 </section>
 
+</main>
+
+<!-- COPY POPUP -->
+
+<div id="copyPopup" class="copy-popup" role="status" aria-live="polite"></div>
+
 <script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    const menu = document.getElementById("mobileDropdown");
+
+    const open = menu.classList.toggle("show");
+
+    document.querySelector(".mobile-menu").setAttribute("aria-expanded", open);
+
+}
+
+/* ENTER / ESPACIO activan elementos con role="button" */
+
+document.addEventListener("keydown", function(event){
+
+    if(
+        (event.key === "Enter" || event.key === " ") &&
+        event.target.getAttribute("role") === "button"
+    ){
+
+        event.preventDefault();
+
+        event.target.click();
+
+    }
+
+});
 
 let step = 0;
 let answers = [];
@@ -149,7 +228,7 @@ const songDescriptions = [
     //Pánico al pogo
     "¿Saben qué es ir a un toque con gafas y brackets?",
     //Es lo que hay
-    "Siempre hay forma de poder actuar de forma consecuente, respetuosa y madura. Pero cambiar lo que somos no es una opción. Hay cosas que no cambiarán, que no mejorarán. Aprendemos a vivir con ellas. Es posible que duela un poco, pero es lo que hay",
+    "Siempre hay forma de poder actuar de forma consecuente, respetuosa y madura. Pero cambiar lo que somos no es una opción. Hay cosas que no cambiarán, que no mejorarán. Aprendemos a vivir con ellas. Es posible que duela un poco, pero es lo que hay.",
     //Pésimo servicio
     "Después de todo lo vivido. Después de aprender a sentir. Después de tocar el cielo. Ser sólo una decepción. Un pésimo servicio. Ser sólo un mal recuerdo y una calificación final: dos estrellas.",
     //Tal vez
@@ -372,7 +451,73 @@ function togglePlay(){
 
 }
 
-function shareResult(){
+/* Copia texto: API moderna, luego método antiguo (navegadores de Instagram/TikTok) */
+
+async function copyText(text){
+
+    try{
+        await navigator.clipboard.writeText(text);
+        return true;
+    }catch(e){}
+
+    try{
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        const ok = document.execCommand("copy");
+        area.remove();
+        return ok;
+    }catch(e){
+        return false;
+    }
+
+}
+
+/* Aviso rojo. Si "manual" es true, queda abierto con el texto
+   seleccionado para copiarlo a mano, y se cierra al tocar fuera. */
+
+function showPopup(text, manual){
+
+    const popup = document.getElementById("copyPopup");
+
+    popup.textContent = text;
+
+    popup.classList.add("show-popup");
+
+    clearTimeout(showPopup.timer);
+
+    if(manual){
+
+        const range = document.createRange();
+        range.selectNodeContents(popup);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        setTimeout(() => {
+            document.addEventListener("click", function close(e){
+                if(popup.contains(e.target)) return;
+                popup.classList.remove("show-popup");
+                document.removeEventListener("click", close);
+            });
+        }, 0);
+
+    }
+    else{
+
+        showPopup.timer = setTimeout(() => {
+            popup.classList.remove("show-popup");
+        }, 2200);
+
+    }
+
+}
+
+async function shareResult(){
 
     const shareData = {
 
@@ -386,14 +531,26 @@ function shareResult(){
 
     if(navigator.share){
 
-        navigator.share(shareData);
+        try{
+            await navigator.share(shareData);
+            return;
+        }catch(e){
+            /* la persona canceló: no hacer nada */
+            if(e.name === "AbortError") return;
+        }
+
+    }
+
+    if(await copyText(shareData.url)){
+
+        showPopup("Link copiado", false);
 
     }
     else{
 
-        navigator.clipboard.writeText(shareData.url);
+        /* no se pudo copiar: mostrar el link para copiarlo a mano */
 
-        alert("Link copiado");
+        showPopup(shareData.url, true);
 
     }
 

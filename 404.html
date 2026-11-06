@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Página no encontrada | NO FUTURO</title>
+
+<meta name="robots" content="noindex">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+
+<style>
+    body{
+        background:#f2f2f2;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-content">
+
+    <a class="logo" href="/">
+        NO FUTURO
+    </a>
+
+  <nav class="desktop-menu">
+
+      <a href="https://nofuturo.com" target="_blank">
+          NOFUTURO.COM
+      </a>
+
+      <a href="/quiz.html">
+          TERAPIA
+      </a>
+
+  </nav>
+
+    <div class="mobile-menu" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Abrir menú" aria-controls="mobileDropdown" aria-expanded="false">
+        ☰
+    </div>
+
+</div>
+
+<div id="mobileDropdown" class="mobile-dropdown">
+
+    <a href="https://nofuturo.com" target="_blank">
+        NOFUTURO.COM
+    </a>
+
+    <a href="/quiz.html">
+        TERAPIA
+    </a>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="hero-section">
+
+<div class="section-inner">
+
+<div class="quiz-app">
+
+<h1 class="quiz-question">
+Esta página no existe.
+</h1>
+
+<a href="/" class="platform-button quiz-btn">Volver al disco</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+
+function toggleMenu(){
+
+    const menu = document.getElementById("mobileDropdown");
+
+    const open = menu.classList.toggle("show");
+
+    document.querySelector(".mobile-menu").setAttribute("aria-expanded", open);
+
+}
+
+document.addEventListener("keydown", function(event){
+
+    if(
+        (event.key === "Enter" || event.key === " ") &&
+        event.target.getAttribute("role") === "button"
+    ){
+
+        event.preventDefault();
+
+        event.target.click();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
